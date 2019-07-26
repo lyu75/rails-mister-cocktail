@@ -1,18 +1,41 @@
-<h1 class='text-center'>R-CH<sub>2</sub>-OH</h1>
+<div class='banner text-center' style='color: white; text-shadow: 0px 0px 10px rgb(255,255,255); margin: 20px; padding: 200px; background-size: cover; background-image: url("https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")'>
+  <h1>R-CH<sub>2</sub>-OH</h1>
+  <p style='font-size: 10px; letter-spacing: 3px; text-shadow: none; margin: 30px; color: rgba(255,255,255,0.8)'>An alcohol is any organic compound in which the hydroxyl functional group (OH) is bound to a carbon. The alcohol ethanol is the main alcohol present in alcoholic beverages</p>
+</div>
 
 <div class="container">
   <%= link_to "Add Alcohol", new_cocktail_path, class: 'btn btn-dark' %>
+
   <div class="row">
+
     <% @cocktails.each do |c| %>
-      <div class="card col-sm-6 col-lg-2 m-2">
-        <h4>
-          <%= link_to c.name, cocktail_path(c) %>
-        </h4>
-        <% c.ingredients.each do |i| %>
-          <li><%= i.name %></li>
-        <% end %>
-        <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
-      </div>
+      <!--If c.photo = nil -->
+      <% if (!c.photo.present?) %>
+        <div class="card col-sm-6 col-lg-2 m-2" style='padding: 20px'>
+          <h4>
+            <%= link_to c.name, cocktail_path(c) %>
+          </h4>
+
+          <% c.ingredients.each do |i| %>
+            <li><%= i.name %></li>
+          <% end %>
+          <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
+        </div>
+      <% else %>
+        <div class="card col-sm-6 col-lg-2 m-2" style="padding: 20px; color: white; text-shadow: 0px 0px 3px rgb(0, 0, 0); background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path c.photo %>')">
+          <h4>
+            <%= link_to c.name, cocktail_path(c) %>
+          </h4>
+
+          <% c.ingredients.each do |i| %>
+            <li><%= i.name %></li>
+          <% end %>
+          <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
+        </div>
+      <% end %>
+      <!--If c.photo != nil -->
+
     <% end %>
   </div>
 </div>

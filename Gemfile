@@ -70,3 +70,9 @@ gem 'rails-controller-testing', group: [ :test ]
 
 # for security
 gem 'dotenv-rails', groups: [:development, :test]
+
+# cloudinary
+gem 'cloudinary', '~> 1.9.1'
+
+# for uploading files associated to Models
+gem 'carrierwave', '~> 1.2'
