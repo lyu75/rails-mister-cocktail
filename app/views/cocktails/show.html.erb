@@ -3,7 +3,7 @@
 </div>
 <div class='container text-center m-3'>
   <% @cocktail.doses.each do |d| %>
-    <p><%= d.description %> - <%= d.ingredient.name %></p>
+    <p><%= d.description %> - <%= d.ingredient.name %> | <%= link_to 'delete', dose_path(d), method: :delete %></p>
   <% end %>
   <%=  render 'doses/new', cocktail: @cocktail, dose: @dose, class: 'm-3'%>
   <%= link_to "All Cocktails", cocktails_path, class: 'btn btn-dark m-3'%>

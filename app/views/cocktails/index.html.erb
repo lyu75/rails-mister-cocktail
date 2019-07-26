@@ -5,10 +5,13 @@
   <div class="row">
     <% @cocktails.each do |c| %>
       <div class="card col-sm-6 col-lg-2 m-2">
-        <%= link_to c.name, cocktail_path(c) %>
+        <h4>
+          <%= link_to c.name, cocktail_path(c) %>
+        </h4>
         <% c.ingredients.each do |i| %>
           <li><%= i.name %></li>
         <% end %>
+        <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
       </div>
     <% end %>
   </div>
