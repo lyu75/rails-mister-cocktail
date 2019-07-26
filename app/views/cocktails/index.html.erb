@@ -19,7 +19,7 @@
           <% c.ingredients.each do |i| %>
             <li><%= i.name %></li>
           <% end %>
-          <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
+          <p><%= link_to "Delete", cocktail_path(c), method: :delete, class: 'btn btn-danger'%></p>
         </div>
       <% else %>
         <div class="card col-sm-6 col-lg-2 m-2" style="padding: 20px; color: white; text-shadow: 0px 0px 3px rgb(0, 0, 0); background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -31,7 +31,7 @@
           <% c.ingredients.each do |i| %>
             <li><%= i.name %></li>
           <% end %>
-          <p><%= link_to "Delete", cocktail_path(c), method: :delete%></p>
+          <p><%= link_to "Delete", cocktail_path(c), method: :delete, class: 'btn btn-danger'%></p>
         </div>
       <% end %>
       <!--If c.photo != nil -->
