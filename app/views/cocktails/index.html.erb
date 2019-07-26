@@ -1,0 +1,15 @@
+<h1 class='text-center'>Stupid Cocktails</h1>
+
+<div class="container">
+  <%= link_to "Add a Stupid Cocktail", new_cocktail_path, class: 'btn btn-dark' %>
+  <div class="row">
+    <% @cocktails.each do |c| %>
+      <div class="card col-sm-6 col-lg-2 m-2">
+        <%= link_to c.name, cocktail_path(c) %>
+        <% c.ingredients.each do |i| %>
+          <li><%= i.name %></li>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
